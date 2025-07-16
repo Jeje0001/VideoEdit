@@ -1,25 +1,23 @@
-# Use an official Node image with ffmpeg support
-FROM jrottenberg/ffmpeg:6.0-bookworm as ffmpeg
-
-# Base Node image
+# Use Node base image
 FROM node:20-bullseye
 
-# Install ffmpeg/ffprobe from previous image
-COPY --from=ffmpeg /usr/local/bin/ffmpeg /usr/local/bin/ffmpeg
-COPY --from=ffmpeg /usr/local/bin/ffprobe /usr/local/bin/ffprobe
+# Install ffmpeg (includes ffprobe too)
+RUN apt-get update && \
+    apt-get install -y ffmpeg && \
+    apt-get clean
 
-# Create app directory
+# Set working directory
 WORKDIR /app
 
-# Copy package files and install dependencies
+# Copy and install dependencies
 COPY package*.json ./
 RUN npm install
 
-# Copy source code
+# Copy rest of the app
 COPY . .
 
-# Expose port (match your Express server)
+# Expose backend port
 EXPOSE 8080
 
-# Start the server
+# Start server
 CMD ["node", "main.js"]

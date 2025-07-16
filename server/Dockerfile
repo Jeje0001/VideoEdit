@@ -1,25 +1,25 @@
-# Stage 1: Get ffmpeg and ffprobe from a prebuilt image
-FROM jrottenberg/ffmpeg:5.1-alpine as ffmpeg
+# Use an official Node image with ffmpeg support
+FROM jrottenberg/ffmpeg:6.0-bookworm as ffmpeg
 
-# Stage 2: Use Node.js base image
-FROM node:18-alpine
+# Base Node image
+FROM node:20-bullseye
 
-# Copy ffmpeg binaries from stage 1
+# Install ffmpeg/ffprobe from previous image
 COPY --from=ffmpeg /usr/local/bin/ffmpeg /usr/local/bin/ffmpeg
 COPY --from=ffmpeg /usr/local/bin/ffprobe /usr/local/bin/ffprobe
 
-# Set working directory
+# Create app directory
 WORKDIR /app
 
-# Copy package files and install
+# Copy package files and install dependencies
 COPY package*.json ./
 RUN npm install
 
-# Copy the rest of the server code
+# Copy source code
 COPY . .
 
-# Expose the port your app uses
+# Expose port (match your Express server)
 EXPOSE 8080
 
 # Start the server
-CMD ["npm", "start"]
+CMD ["node", "main.js"]

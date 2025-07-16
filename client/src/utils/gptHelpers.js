@@ -1,4 +1,5 @@
 // utils/gptHelpers.js
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
 const SUPPORTED_ACTIONS = [
   "cut", "remove_segment", "mute_segment", "remove_filler",
@@ -31,7 +32,7 @@ Supported actions: ${SUPPORTED_ACTIONS.join(", ")}.
 
   const userMessage = { role: "user", content: promptText };
 
-  const res = await fetch("http://localhost:5001/api/gpt/chat", {
+  const res = await fetch(`${BASE_URL}/api/gpt/chat`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json" // ✅ no Authorization
@@ -58,7 +59,7 @@ export async function rewritePromptWithGPT(promptText) {
     { role: "user", content: promptText }
   ];
 
-  const res = await fetch("http://localhost:5001/api/gpt/chat", {
+  const res = await fetch(`${BASE_URL}/api/gpt/chat`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ messages })

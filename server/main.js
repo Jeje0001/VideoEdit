@@ -54,7 +54,7 @@ fs.mkdirSync(uploadPath, { recursive: true });
 // Middleware
 // ============================
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: BASE_URL, 
   methods: ['GET','POST','PUT','DELETE','OPTIONS'],
   allowedHeaders: ['Content-Type','Authorization']
 }));

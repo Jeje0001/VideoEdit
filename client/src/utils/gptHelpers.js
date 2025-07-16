@@ -3,7 +3,7 @@ const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
 const SUPPORTED_ACTIONS = [
   "cut", "remove_segment", "mute_segment", "remove_filler",
-  "remove_silence", "extract_audio", "add_text", "export", "undo","download", "slow_motion"
+  "remove_silence", "extract_audio", "add_text", "export", "undo","download", "slow_motion","add_subtitles"
 ];
 export async function classifyPromptType(promptText) {
   const systemMessage = {

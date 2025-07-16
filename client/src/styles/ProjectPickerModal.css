@@ -1,0 +1,143 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  color: black;
+  font-size: 1.4rem;
+}
+
+.project-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.project-list::-webkit-scrollbar {
+  width: 8px;
+}
+.project-list::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.project-item {
+  background: black;
+  color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s ease;
+  cursor: pointer;
+  gap: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.05);
+}
+
+.project-item:hover {
+  background: #1a1a1a;
+}
+
+.project-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  text-align: left;
+  width: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.project-name {
+  font-weight: bold;
+  font-size: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.project-meta {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.filename {
+  word-break: break-word;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.date {
+  margin-top: 2px;
+}
+
+.project-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.project-actions button {
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.project-actions button:hover {
+  transform: scale(1.2);
+  color: #00d4c4;
+}
+
+.close-button {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+  background: #c0392b;
+  outline: none;
+}
+
+.empty-state {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 1rem;
+}

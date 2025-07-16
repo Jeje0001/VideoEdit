@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "AI video editor backend",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0",
+    "multer": "^2.0.1",
+    "node-fetch": "^3.3.2",
+    "openai": "^5.8.2"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^8.0.0"
+  }
+}

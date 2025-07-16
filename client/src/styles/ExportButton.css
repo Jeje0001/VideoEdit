@@ -1,0 +1,28 @@
+.video-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.video-actions button {
+  background-color: #00D4C4;
+  color: black;
+  font-weight: bold;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.video-actions button:hover {
+  background-color: #00bfb3;
+}
+
+@media (max-width: 480px) {
+  .video-actions button {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+}

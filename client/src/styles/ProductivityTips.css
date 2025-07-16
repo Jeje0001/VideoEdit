@@ -1,0 +1,37 @@
+/* ProductivityTips.css */
+
+.tips-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  backdrop-filter: blur(8px);
+  transition: all 0.4s ease;
+}
+
+.tips-box:hover,
+.tips-box:focus-within {
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: scale(1.01);
+}
+
+.tip-text {
+  color: #f0f0f0;
+  font-size: 15px;
+  margin-top: 8px;
+  animation: fadeTip 0.5s ease;
+}
+
+/* Optional fade animation */
+@keyframes fadeTip {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

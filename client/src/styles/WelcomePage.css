@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(145deg, #1A2A44, #0A0F1F);
+  color: #fff;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #1A2A44, #0A0F1F);
+}
+
+.welcome-card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+.tips-wrapper {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.glass-box {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 40px 30px;
+  width: 90%;
+  max-width: 720px;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.8s ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+.glass-box:hover {
+  transform: scale(1.01);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.primary-btn,
+.secondary-btn {
+  transition: all 0.2s ease;
+  transform: scale(1);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(0, 212, 196, 0.4);
+}
+
+.tips-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px 25px;
+  max-height: 300px;
+  overflow-y: auto;
+  backdrop-filter: blur(8px);
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.05);
+  width: 100%;
+  max-width: 600px;
+  animation: fadeTip 0.5s ease;
+}
+
+@keyframes fadeTip {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

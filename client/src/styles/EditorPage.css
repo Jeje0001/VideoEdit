@@ -1,0 +1,136 @@
+/* Main layout wrapper */
+.editor-layout {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  background-color: #0A0F1F; /* dark background */
+  color: white;
+  overflow: hidden;
+}
+
+/* Sidebar (left panel) */
+.sidebar {
+  flex: 0 0 18%;
+  max-width: 240px;
+  background-color: #161b22;
+  padding: 1.5rem;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+}
+
+/* Center video editor area */
+.video-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 1.5rem;
+  overflow-y: auto;
+}
+
+/* Video styling */
+.video-preview video {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 212, 196, 0.4); /* neon teal glow */
+}
+
+/* Blur video when loading */
+.video-preview.loading video {
+  filter: blur(4px) grayscale(40%);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Export button styling */
+.export-button {
+  padding: 0.7rem 1.5rem;
+  background-color: #00d4c4;
+  border: none;
+  color: black;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.export-button:hover {
+  background-color: #00f0de;
+}
+
+.export-button:disabled {
+  background-color: #00d4c46b;
+  cursor: not-allowed;
+}
+
+/* Prompt input panel (right) */
+.prompt-panel {
+  flex: 0 0 20%;
+  max-width: 280px;
+  background-color: #161b22;
+  padding: 1rem;
+  border-left: 1px solid #2a2f3a;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+}
+
+/* Loading overlay */
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.25rem;
+  backdrop-filter: blur(2px);
+}
+
+.loading-spinner {
+  border: 6px solid rgba(255, 255, 255, 0.2);
+  border-top: 6px solid #00D4C4;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 1rem;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mobile responsive fallback */
+@media (max-width: 768px) {
+  .editor-layout {
+    flex-direction: column;
+  }
+
+  .sidebar,
+  .prompt-panel {
+    max-width: 100%;
+    flex: 0 0 auto;
+    border: none;
+    padding: 1rem;
+  }
+
+  .video-area {
+    padding: 1rem;
+  }
+
+  .video-preview video {
+    width: 100%;
+    max-width: 100%;
+  }
+}

@@ -9,7 +9,6 @@ import { trackEdit } from './undoRoutes.js';
 
 const router = express.Router();
 
-// ✅ CHANGED FROM uploads/cuts TO uploads/videos
 const outputDir = path.resolve('uploads/videos');
 
 /**
@@ -62,7 +61,6 @@ router.post('/cut-video', async (req, res) => {
     const extension = path.extname(filename);
     const outputFilename = `cut-${uniqueSuffix}${extension}`;
 
-    // ✅ CHANGE OUTPUT PATH TO /uploads/videos/
     const outputFilePath = path.join(outputDir, outputFilename);
 
     const duration = endSeconds - startSeconds;
@@ -74,7 +72,6 @@ router.post('/cut-video', async (req, res) => {
         return res.status(500).json({ success: false, message: 'Failed to cut video.', error: err.message });
       }
 
-      // ✅ UPDATE URL TO POINT TO /videos/
       const fileUrl = `/uploads/videos/${outputFilename}`;
       trackEdit(user_id, outputFilename);
       return res.status(200).json({
